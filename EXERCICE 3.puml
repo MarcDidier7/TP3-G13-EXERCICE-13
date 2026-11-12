@@ -1,0 +1,44 @@
+@startuml
+abstract class Employe {
+    - matricule : string
+    - nom : string
+    - prenom : string
+    - salaireBase : double
+    + Employe(matricule, nom, prenom, salaireBase)
+    + {abstract} calculerSalaire() : double
+    + {abstract} getCategorie() : string
+    + afficher() : void
+    + getMatricule() : string
+    + getNom() : string
+    + getPrenom() : string
+    + getSalaireBase() : double
+}
+
+class Enseignant {
+    - indemniteRecherche : double
+    - indemniteEnseignement : double
+    + calculerSalaire() : double
+    + getCategorie() : string
+    + afficher() : void
+}
+
+class AgentAdministratif {
+    - primeResponsabilite : double
+    - primeTransport : double
+    + calculerSalaire() : double
+    + getCategorie() : string
+    + afficher() : void
+}
+
+class Technicien {
+    - primeRisque : double
+    - primeTechnicite : double
+    + calculerSalaire() : double
+    + getCategorie() : string
+    + afficher() : void
+}
+
+Employe <|-- Enseignant
+Employe <|-- AgentAdministratif
+Employe <|-- Technicien
+@enduml
